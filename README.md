@@ -1,620 +1,134 @@
-# FinanChat AI
+# FinanChat AI — Assistente Financeiro Inteligente
 
-Crie um app de finanças pessoais com base no seguinte PRD (PRODUCTION REQUERIMENTS DOCUMENT). 
+## 1. Sobre o projeto
 
+O **FinanChat AI** é um aplicativo de finanças pessoais que utiliza Inteligência Artificial para ajudar os usuários a organizar suas receitas, despesas e metas financeiras por meio de conversas em linguagem natural.
 
+A proposta é tornar o controle financeiro mais simples, acessível e intuitivo, permitindo que qualquer pessoa registre suas movimentações sem precisar preencher formulários complexos ou utilizar planilhas.
 
-Objetivo: 
+O projeto foi desenvolvido como parte de um desafio da DIO, explorando o uso de Inteligência Artificial no desenvolvimento de soluções digitais.
 
-Crie um aplicativo mobile-first chamado FinanChat, focado em finanças pessoais conversacionais. O produto deve seguir os princípios de Design Universal, acessibilidade WCAG AA e abordagem mobile-first. A principal interface deve ser um chat inteligente com entrada por texto e voz. O sistema deve interpretar linguagem natural para registrar receitas, despesas e metas financeiras automaticamente. Crie telas de Onboarding, Conversar, Dashboard Simplificado, Metas, Insights e Perfil. Utilize React, TypeScript, Tailwind CSS, Supabase e arquitetura preparada para integração com LLMs. O design deve combinar a simplicidade do WhatsApp, a clareza do Duolingo, a confiança do Nubank e a organização do Notion, priorizando acessibilidade, simplicidade cognitiva e experiência para usuários iniciantes, idosos e pessoas com diferentes necessidades de acessibilidade.
+## 2. Prompt final (PRD)
 
-# PRD - FinanChat
+### Objetivo
 
-Assistente Financeiro Conversacional com Design Universal
+Desenvolver um aplicativo mobile-first chamado FinanChat AI, com uma interface conversacional capaz de interpretar mensagens dos usuários e transformá-las em registros financeiros organizados.
 
+O aplicativo deve seguir princípios de Design Universal, acessibilidade WCAG AA e simplicidade cognitiva, oferecendo uma experiência intuitiva para iniciantes, idosos e pessoas com diferentes necessidades de acessibilidade.
 
+### Funcionalidades principais
 
-==============================================================
+- **Chat financeiro inteligente:** registro de receitas, despesas e metas por meio de mensagens em linguagem natural.
+- **Interação por voz:** possibilidade de informar movimentações financeiras utilizando comandos de voz.
+- **Classificação automática:** organização das movimentações em categorias como alimentação, transporte, moradia, saúde, educação, lazer e outras.
+- **Dashboard financeiro:** visualização de receitas, despesas, saldo atual e economia mensal.
+- **Metas financeiras:** criação e acompanhamento de objetivos, como comprar um carro, realizar uma viagem ou construir uma reserva de emergência.
+- **Insights inteligentes:** apresentação de análises e recomendações para ajudar o usuário a compreender seus hábitos financeiros.
+- **Alertas:** notificações sobre metas, mudanças nos gastos e períodos sem registros financeiros.
+- **Perfil e configurações:** personalização da experiência e das preferências de acessibilidade.
 
-1. VISÃO DO PRODUTO
+### Tecnologias previstas
 
-==============================================================
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- Integração com modelos de Inteligência Artificial (LLMs)
 
+### Diretrizes de design
 
+A interface deve combinar simplicidade, clareza e confiança, com navegação intuitiva, textos objetivos, botões acessíveis, contraste adequado e suporte a diferentes tamanhos de tela.
 
-O FinanChat é um aplicativo de finanças pessoais baseado em Inteligência Artificial que permite registrar despesas, receitas e metas financeiras através de conversas em linguagem natural.
+A arquitetura deve permitir a evolução do projeto e a integração segura com serviços de Inteligência Artificial.
 
+### Exemplo de interação
 
+**Usuário:** "Gastei R$ 45 no mercado hoje."
 
-O objetivo é eliminar a complexidade das planilhas e formulários tradicionais, transformando o controle financeiro em uma experiência simples, acessível e intuitiva.
+**FinanChat AI:** "Despesa de R$ 45 registrada na categoria Alimentação."
 
+O objetivo é transformar uma mensagem simples em uma movimentação financeira organizada, com confirmação clara para o usuário.
 
+## 3. Prints ou vídeos das interações com a IA
 
-O produto será construído seguindo princípios de Design Universal, acessibilidade e simplicidade cognitiva, garantindo uso fácil para iniciantes, idosos e usuários com diferentes perfis de alfabetização digital.
+Esta seção deve apresentar evidências reais do desenvolvimento e das interações realizadas com a Inteligência Artificial.
 
+Adicione capturas de tela ou vídeos curtos que demonstrem, por exemplo:
 
+- A criação da interface do FinanChat AI.
+- Uma conversa em que a IA interpreta uma despesa.
+- O registro de uma receita por linguagem natural.
+- A criação ou atualização de uma meta financeira.
+- A apresentação do dashboard ou dos insights financeiros.
 
-==============================================================
+### Evidências
 
-2. PROBLEMA
+Insira aqui as imagens ou os links dos vídeos das interações realizadas durante o desenvolvimento.
 
-==============================================================
+Exemplo de organização dos arquivos:
 
-
-
-Muitas pessoas abandonam aplicativos financeiros porque:
-
-
-
-- Exigem preenchimento manual constante.
-
-- Possuem interfaces complexas.
-
-- Utilizam termos financeiros difíceis.
-
-- Não oferecem orientação personalizada.
-
-- Não atendem adequadamente usuários com necessidades de acessibilidade.
-
-
-
-Como consequência, usuários deixam de acompanhar gastos e perdem oportunidades de economizar ou atingir objetivos financeiros.
-
-
-
-==============================================================
-
-3. OBJETIVO
-
-==============================================================
-
-
-
-Permitir que qualquer pessoa organize sua vida financeira apenas conversando com um assistente virtual.
-
-
-
-Exemplo:
-
-
-
-Usuário:
-
-"Gastei R$ 45 no mercado hoje."
-
-
-
-IA:
-
-"Despesa registrada em Alimentação no valor de R$ 45."
-
-
-
-==============================================================
-
-4. PÚBLICO-ALVO
-
-==============================================================
-
-
-
-Primário:
-
-- Pessoas iniciando educação financeira.
-
-- Jovens adultos.
-
-- Trabalhadores autônomos.
-
-- Usuários com pouca familiaridade tecnológica.
-
-
-
-Secundário:
-
-- Pessoas idosas.
-
-- Famílias.
-
-- Usuários com TDAH.
-
-- Pessoas com baixa visão.
-
-- Pessoas que desejam criar hábitos financeiros consistentes.
-
-
-
-==============================================================
-
-5. PROPOSTA DE VALOR
-
-==============================================================
-
-
-
-"Controle suas finanças da mesma forma que conversa com um amigo."
-
-
-
-O usuário não precisa aprender planilhas nem navegar por menus complexos.
-
-
-
-A IA entende linguagem natural e transforma conversas em informações financeiras organizadas.
-
-
-
-==============================================================
-
-6. PRINCÍPIOS DE DESIGN UNIVERSAL
-
-==============================================================
-
-
-
-1. Simplicidade extrema
-
-- Poucos elementos por tela.
-
-- Linguagem clara.
-
-- Fluxos curtos.
-
-
-
-2. Inclusão cognitiva
-
-- Sem jargões financeiros.
-
-- Explicações simples.
-
-- Orientação passo a passo.
-
-
-
-3. Acessibilidade visual
-
-- Contraste WCAG AA.
-
-- Dark Mode.
-
-- Fontes escaláveis.
-
-- Compatibilidade com leitores de tela.
-
-
-
-4. Acessibilidade motora
-
-- Botões grandes.
-
-- Navegação por teclado.
-
-- Comandos por voz.
-
-
-
-5. Acessibilidade linguística
-
-- Aceitar diferentes formas de comunicação.
-
-
-
-Exemplo:
-
-
-
-"Gastei 50 no almoço"
-
-"Almoço 50 reais"
-
-"Paguei 50 reais pra comer"
-
-
-
-Todos devem gerar o mesmo resultado.
-
-
-
-6. Feedback imediato
-
-- Toda ação deve ter confirmação clara.
-
-
-
-Exemplos:
-
-
-
-✅ Despesa registrada
-
-✅ Meta criada
-
-✅ Relatório atualizado
-
-
-
-==============================================================
-
-7. FUNCIONALIDADES DO MVP
-
-==============================================================
-
-
-
-7.1 Chat Financeiro Inteligente
-
-
-
-O usuário registra:
-
-
-
-- Despesas
-
-- Receitas
-
-- Metas
-
-
-
-Utilizando mensagens naturais.
-
-
-
-Exemplos:
-
-
-
-"Recebi R$ 3.000 de salário."
-
-
-
-"Paguei R$ 120 de internet."
-
-
-
-"Gastei R$ 70 com gasolina."
-
-
-
-A IA precisa identificar:
-
-
-
-- Tipo da movimentação
-
-- Valor
-
-- Categoria
-
-- Data
-
-- Descrição
-
-
-
---------------------------------------------------------------
-
-
-
-7.2 Registro por Voz
-
-
-
-Fluxo:
-
-
-
-Usuário fala
-
-→ IA interpreta
-
-→ Sistema registra
-
-→ Confirmação exibida
-
-
-
---------------------------------------------------------------
-
-
-
-7.3 Classificação Automática
-
-
-
-Categorias:
-
-
-
-- Alimentação
-
-- Transporte
-
-- Moradia
-
-- Saúde
-
-- Educação
-
-- Compras
-
-- Lazer
-
-- Trabalho
-
-- Investimentos
-
-- Outros
-
-
-
---------------------------------------------------------------
-
-
-
-7.4 Dashboard Simplificado
-
-
-
-Mostrar:
-
-
-
-- Total recebido
-
-- Total gasto
-
-- Saldo atual
-
-- Economia do mês
-
-- Gastos por categoria
-
-
-
-Evitar excesso de gráficos.
-
-
-
---------------------------------------------------------------
-
-
-
-7.5 Metas Financeiras
-
-
-
-Exemplos:
-
-
-
-- Comprar carro
-
-- Viagem
-
-- Reserva de emergência
-
-- Quitar dívidas
-
-
-
-A IA calcula:
-
-
-
-- Valor restante
-
-- Percentual concluído
-
-- Tempo estimado
-
-
-
---------------------------------------------------------------
-
-
-
-7.6 Agente Financeiro
-
-
-
-Analisar comportamento financeiro.
-
-
-
-Exemplos:
-
-
-
-"Você gastou 18% mais com alimentação este mês."
-
-
-
-"Economizando R$ 200 por mês você atingirá sua meta em 12 meses."
-
-
-
---------------------------------------------------------------
-
-
-
-7.7 Alertas Inteligentes
-
-
-
-Exemplos:
-
-
-
-"Você não registra movimentações há 5 dias."
-
-
-
-"Sua meta atingiu 80%."
-
-
-
-"Os gastos com transporte aumentaram nesta semana."
-
-
-
-==============================================================
-
-8. PRINCIPAIS TELAS
-
-==============================================================
-
-
-
-Tela 1 - Onboarding
-
-
-
-Objetivo:
-
-- Explicar o aplicativo.
-
-- Criar perfil inicial.
-
-
-
-Campos:
-
-- Nome
-
-- Objetivo financeiro principal
-
-- Faixa de renda (opcional)
-
-
-
---------------------------------------------------------------
-
-
-
-Tela 2 - Conversar
-
-
-
-Elementos:
-
-- Campo de mensagem
-
-- Botão de voz
-
-- Histórico de conversas
-
-- Sugestões rápidas
-
-
-
---------------------------------------------------------------
-
-
-
-Tela 3 - Dashboard
-
-
-
-Cards:
-
-
-
-- Receitas
-
-- Despesas
-
-- Saldo
-
-- Economia
-
-
-
-Gráficos:
-
-
-
-- Gastos por categoria
-
-- Evolução dos gastos
-
-
-
---------------------------------------------------------------
-
-
-
-Tela 4 - Metas
-
-
-
-Informações:
-
-
-
-- Meta
-
-- Valor total
-
-- Valor acumulado
-
-- Progresso
-
-
-
---------------------------------------------------------------
-
-
-
-Tela 5 - Insights
-
-
-
-Exibir:
-
-
-
-- Recomendações da IA
-
-- Resumos semanais
-
-- Resumos mensais
-
-
-
---------------------------------------------------------------
-
-
-
-Tela 6 - Perfil
-
-
-
-Configurações:
-
-
-
-- Idioma
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/b9667222-573d-4cf1-bbee-90ecbf8e5fc6).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```text
+docs/
+├── interface-finan-chat.png
+├── registro-despesa.png
+├── registro-receita.png
+├── metas-financeiras.png
+└── interacao-ia.mp4
 ```
+
+> Observação: substitua os exemplos pelos registros reais do projeto. Não inclua capturas fictícias como se fossem evidências de funcionalidades implementadas.
+
+## 4. Resumo do aplicativo de finanças pessoais
+
+O FinanChat AI busca simplificar a organização financeira por meio de uma experiência conversacional com Inteligência Artificial.
+
+Em vez de exigir que o usuário navegue por várias telas para cadastrar uma movimentação, o aplicativo permite informar receitas e despesas com frases simples, como "Recebi R$ 3.000 de salário" ou "Paguei R$ 120 de internet".
+
+A partir dessas informações, o sistema pode identificar o tipo de movimentação, o valor, a categoria, a data e a descrição, organizar os registros e atualizar os indicadores financeiros.
+
+O aplicativo também propõe funcionalidades para acompanhar metas, visualizar hábitos de consumo e receber recomendações que incentivem decisões financeiras mais conscientes.
+
+O principal diferencial do projeto é unir praticidade, acessibilidade e Inteligência Artificial para tornar o controle financeiro mais próximo da realidade cotidiana dos usuários.
+
+## 5. Reflexão sobre o processo
+
+### O que funcionou bem?
+
+A utilização da Inteligência Artificial como apoio ao desenvolvimento ajudou a estruturar a ideia do aplicativo, organizar os requisitos e definir as principais funcionalidades.
+
+A abordagem conversacional também se mostrou uma alternativa interessante para simplificar tarefas financeiras que normalmente exigem preenchimento manual.
+
+A definição de um PRD contribuiu para estabelecer os objetivos do projeto e orientar a construção de uma experiência mais acessível e intuitiva.
+
+### O que não funcionou como esperado?
+
+Durante o desenvolvimento, podem surgir desafios relacionados à interpretação de mensagens ambíguas, à classificação correta das movimentações financeiras e à integração entre a interface, o banco de dados e os serviços de IA.
+
+Outro ponto importante é garantir que as respostas da Inteligência Artificial sejam coerentes e que os registros financeiros sejam confirmados antes de serem salvos quando houver informações insuficientes ou dúvidas sobre os dados informados.
+
+**Nota:** adapte esta seção às dificuldades que você realmente encontrou durante o desenvolvimento.
+
+### O que aprendi sobre conversar com IAs?
+
+Aprendi que fornecer instruções claras, específicas e bem organizadas é fundamental para obter resultados mais próximos do esperado.
+
+A elaboração de um PRD permite comunicar à Inteligência Artificial os objetivos, o público-alvo, as funcionalidades e as restrições do projeto de maneira estruturada.
+
+Também compreendi a importância de revisar, testar e validar as respostas geradas pela IA, pois nem toda sugestão corresponde automaticamente a uma solução funcional ou segura.
+
+A Inteligência Artificial pode acelerar o desenvolvimento, mas o acompanhamento humano continua sendo essencial para avaliar a qualidade, a acessibilidade, a segurança e a experiência do usuário.
+
+## 6. Considerações finais
+
+O FinanChat AI representa uma proposta de aplicação prática da Inteligência Artificial para resolver um problema cotidiano: a dificuldade de organizar as finanças pessoais.
+
+O projeto explora o potencial das interfaces conversacionais para tornar a tecnologia mais acessível, reduzir a complexidade das tarefas e incentivar hábitos financeiros mais conscientes.
+
+Como próximos passos, o aplicativo poderá evoluir com testes de usabilidade, melhorias na interpretação de linguagem natural, integração segura com modelos de IA e aprimoramento dos recursos de acessibilidade.
+
+## 7. Repositório
+
+**Projeto:** FinanChat AI  
+**Desafio:** DIO — Desenvolvimento de uma aplicação com Inteligência Artificial  
+**Repositório:** [Insira aqui o link do seu repositório no GitHub]
+
