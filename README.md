@@ -216,6 +216,6 @@ Como próximos passos, o aplicativo poderá evoluir por meio de testes de usabil
 
 **Atividade:** Desafio da DIO
 
-**Repositório GitHub:** [Adicionar o link do repositório]
+**Repositório GitHub:** https://github.com/iwankiwdossantoscaio-cloud/financhat-ai.git
 
-**Aplicação publicada:** [Adicionar o link da aplicação, caso esteja disponível]
+**Aplicação publicada:** https://goal-talk.lovable.app
