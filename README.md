@@ -130,5 +130,5 @@ Como próximos passos, o aplicativo poderá evoluir com testes de usabilidade, m
 
 **Projeto:** FinanChat AI  
 **Desafio:** DIO — Desenvolvimento de uma aplicação com Inteligência Artificial  
-**Repositório:** [Insira aqui o link do seu repositório no GitHub]
+**Repositório:**https://github.com/iwankiwdossantoscaio-cloud/financhat-ai.git
 
