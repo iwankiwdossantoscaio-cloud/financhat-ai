@@ -14,7 +14,135 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          actions: Json
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          actions?: Json
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          actions?: Json
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      goals: {
+        Row: {
+          created_at: string
+          id: string
+          monthly_contribution: number | null
+          saved_amount: number
+          target_amount: number
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          monthly_contribution?: number | null
+          saved_amount?: number
+          target_amount: number
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          monthly_contribution?: number | null
+          saved_amount?: number
+          target_amount?: number
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          font_scale: number
+          id: string
+          income_range: string | null
+          language: string
+          main_goal: string | null
+          name: string | null
+          onboarded: boolean
+          simple_language: boolean
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          font_scale?: number
+          id: string
+          income_range?: string | null
+          language?: string
+          main_goal?: string | null
+          name?: string | null
+          onboarded?: boolean
+          simple_language?: boolean
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          font_scale?: number
+          id?: string
+          income_range?: string | null
+          language?: string
+          main_goal?: string | null
+          name?: string | null
+          onboarded?: boolean
+          simple_language?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string
+          description: string
+          id: string
+          occurred_on: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          occurred_on?: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          occurred_on?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
