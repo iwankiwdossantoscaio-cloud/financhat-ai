@@ -56,7 +56,7 @@ function InsightsPage() {
   );
 }
 
-function Summary({ title, items, extra }: { title: string; items: [string, number][]; extra?: string }) {
+function Summary({ title, items, extra }: { title: string; items: [string, number][]; extra?: string | undefined }) {
   return (
     <section className="rounded-3xl bg-card p-5 shadow-soft">
       <h2 className="text-xl font-bold">{title}</h2>

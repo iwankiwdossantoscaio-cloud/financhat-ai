@@ -62,7 +62,7 @@ function Layout() {
   );
 }
 
-export function PageHeader({ title, subtitle }: { title: string; subtitle?: string }) {
+export function PageHeader({ title, subtitle }: { title: string; subtitle?: string | undefined }) {
   return (
     <header className="px-5 pb-4 pt-6">
       <h1 className="text-2xl font-bold">{title}</h1>

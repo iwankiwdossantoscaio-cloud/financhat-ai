@@ -95,11 +95,11 @@ function NewGoalDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (o
   async function save(e: React.FormEvent) {
     e.preventDefault();
     const t = parseMoney(target);
-    if (!title.trim() || t <= 0) return toast.error("Preencha o nome e o valor da meta.");
+    if (!title.trim() || t <= 0) { toast.error("Preencha o nome e o valor da meta."); return; }
     const { data: u } = await supabase.auth.getUser();
     const m = parseMoney(monthly);
     const { error } = await supabase.from("goals").insert({ user_id: u.user!.id, title: title.trim(), target_amount: t, monthly_contribution: m > 0 ? m : null });
-    if (error) return toast.error("Não foi possível criar a meta.");
+    if (error) { toast.error("Não foi possível criar a meta."); return; }
     toast.success("Meta criada", { description: title });
     qc.invalidateQueries({ queryKey: ["goals"] });
     setTitle(""); setTarget(""); setMonthly("");
@@ -126,9 +126,9 @@ function DepositDialog({ goal, onClose }: { goal: Goal | null; onClose: () => vo
   async function save(e: React.FormEvent) {
     e.preventDefault();
     const v = parseMoney(value);
-    if (!goal || v <= 0) return toast.error("Digite um valor.");
+    if (!goal || v <= 0) { toast.error("Digite um valor."); return; }
     const { error } = await supabase.from("goals").update({ saved_amount: goal.saved_amount + v }).eq("id", goal.id);
-    if (error) return toast.error("Não foi possível salvar.");
+    if (error) { toast.error("Não foi possível salvar."); return; }
     toast.success("Meta atualizada", { description: `+${formatBRL(v)} em ${goal.title}` });
     qc.invalidateQueries({ queryKey: ["goals"] });
     setValue("");
@@ -157,7 +157,7 @@ function DeleteGoal({ goal }: { goal: Goal }) {
       onClick={async () => {
         if (!confirm(`Apagar a meta "${goal.title}"?`)) return;
         const { error } = await supabase.from("goals").delete().eq("id", goal.id);
-        if (error) return toast.error("Não foi possível apagar.");
+        if (error) { toast.error("Não foi possível apagar."); return; }
         toast.success("Meta apagada");
         qc.invalidateQueries({ queryKey: ["goals"] });
       }}

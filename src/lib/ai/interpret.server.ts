@@ -41,7 +41,7 @@ export async function interpretMessage(opts: {
   language: string;
   simple: boolean;
 }): Promise<InterpretResult> {
-  const apiKey = process.env.LOVABLE_API_KEY;
+  const apiKey = process.env['LOVABLE_API_KEY'];
   if (!apiKey) throw new AiError("Assistente não configurado.", 401);
 
   const runIdFetch = createLovableAiGatewayRunIdFetch();

@@ -37,7 +37,7 @@ function ProfilePage() {
   async function update(patch: { name?: string; language?: string; simple_language?: boolean }) {
     if (!profile) return;
     const { error } = await supabase.from("profiles").update(patch).eq("id", profile.id);
-    if (error) return toast.error("Não foi possível salvar.");
+    if (error) { toast.error("Não foi possível salvar."); return; }
     toast.success("Preferência salva");
     qc.invalidateQueries({ queryKey: ["profile"] });
   }
@@ -90,7 +90,7 @@ function ProfilePage() {
           <Segmented
             label="Tamanho do texto"
             value={String(prefs.fontScale)}
-            options={FONT_SCALES.map((s, i) => ({ value: String(s), label: ["A", "A+", "A++"][i] }))}
+            options={FONT_SCALES.map((s, i) => ({ value: String(s), label: ["A", "A+", "A++"][i] ?? "A" }))}
             onChange={(v) => setPref({ fontScale: Number(v) })}
           />
         </Card>
