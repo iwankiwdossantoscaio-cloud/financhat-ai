@@ -102,7 +102,7 @@ export function monthsToReach(remaining: number, monthly: number) {
 }
 
 export function previousMonth(month: string) {
-  const [y, m] = month.split("-").map(Number);
+  const [y = 0, m = 1] = month.split("-").map(Number);
   const d = new Date(Date.UTC(y, m - 2, 1));
   return d.toISOString().slice(0, 7);
 }
@@ -124,7 +124,7 @@ export function buildInsights(txs: Tx[], goals: Goal[], today = todayISO()): Ins
 
   // Days since last record
   if (txs.length > 0) {
-    const latest = txs.reduce((a, t) => (t.occurred_on > a ? t.occurred_on : a), txs[0].occurred_on);
+    const latest = txs.reduce((a, t) => (t.occurred_on > a ? t.occurred_on : a), txs[0]!.occurred_on);
     const days = Math.floor((Date.parse(today) - Date.parse(latest)) / 86400000);
     if (days >= 5) {
       out.push({

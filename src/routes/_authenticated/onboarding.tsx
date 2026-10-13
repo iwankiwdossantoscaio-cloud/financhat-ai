@@ -39,7 +39,7 @@ function Onboarding() {
       .from("profiles")
       .upsert({ id: u.user!.id, name: name.trim(), main_goal: goal, income_range: income, onboarded: true });
     setSaving(false);
-    if (error) return toast.error("Não foi possível salvar. Tente novamente.");
+    if (error) { toast.error("Não foi possível salvar. Tente novamente."); return; }
     await qc.invalidateQueries({ queryKey: ["profile"] });
     toast.success("Perfil criado!");
     navigate({ to: "/conversar" });
